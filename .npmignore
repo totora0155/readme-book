@@ -4,3 +4,4 @@ test/
 templates/index.html
 /*.html
 *.pdf
+npm-debug.log
