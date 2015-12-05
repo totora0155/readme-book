@@ -18,10 +18,18 @@
     "request": "^2.67.0"
   },
   "devDependencies": {
+    "cssnano": "^3.3.2",
     "eslint-config-standard": "^4.4.0",
     "eslint-plugin-standard": "^1.3.1",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.1.1",
     "jasmine": "^2.4.1"
+    "gulp-postcss": "^6.0.1",
+    "postcss-cson-cssvars": "0.0.11",
+    "postcss-namespace": "^0.2.1",
+    "postcss-preref": "0.0.3",
+    "postcss-reporter": "^1.3.0",
+    "stylelint": "^2.3.5",
+    "stylelint-config-nju33": "^0.1.1"
   }
 }
