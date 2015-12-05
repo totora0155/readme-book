@@ -1,5 +1,4 @@
 node_modules/
-/templates/style.css
 /*.html
 *.pdf
 npm-debug.log
