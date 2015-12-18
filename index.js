@@ -8,9 +8,7 @@ const co = require('co'),
       cheerio = require('cheerio'),
       pdf = require('html-pdf');
 
-
-const readmeBook = function readmeBook(opts) {
-
+const readmeBook = function readmeBook(opts, cb) {
   function readFile(filepath, cb) {
     return new Promise((resolve, reject) => {
       fs.readFile(filepath, 'utf-8', (err, data) => {
@@ -35,9 +33,17 @@ const readmeBook = function readmeBook(opts) {
     const base = yield readFile(path.join(__dirname, 'templates/base.html')),
       $base = cheerio.load(base),
       style = yield readFile(path.join(__dirname, 'templates/style.css')),
-      outputPath = opts.o ?
-                   opts.o :
-                   opts.output ? opts.output : './readme-book.pdf';
+      outputPath = (function() {
+        if (opts.o || opts.output) {
+          return opts.o || opts.output;
+        } else {
+          if (opts.o == false || opts.output == false) {
+            return '';
+          } else {
+            return './readme-book.pdf';
+          }
+        }
+      })();
 
     var urls = null,
       data = null;
@@ -68,6 +74,10 @@ const readmeBook = function readmeBook(opts) {
       pdf.create($base.html()).toFile(outputPath, function(err, res) {
         console.log('Created! ' + path.basename(outputPath));
       });
+    } else {
+      const result = $base('.rb__body').html();
+      console.log(result);
+      cb(result)
     }
 
   }).catch(onerror);
