@@ -77,8 +77,10 @@ const readmeBook = function readmeBook(opts, cb) {
     } else {
       const result = $base('.rb__body').html();
       console.log(result);
-      cb(result)
+      return cb(result)
     }
+
+    return cb();
 
   }).catch(onerror);
 

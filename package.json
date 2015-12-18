@@ -49,6 +49,7 @@
   "scripts": {
     "lint": "gulp lint",
     "start": "browser-sync start --server --files '**/*.{html,css,js}' --no-ui --no-open",
-    "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
+    "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json",
+    "posttest": "sleep 3s; rm ./test/*.{html,pdf}"
   }
 }
