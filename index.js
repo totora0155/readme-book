@@ -59,11 +59,16 @@ const readmeBook = function readmeBook(opts) {
     data.forEach((aa) => {
       $base('body').append(`<section>${aa}</section>`);
     });
-    fs.writeFile('index.html', $base.html(), (err) => {
-      console.log('Save! index.html');
-    });
-    pdf.create($base.html()).toFile(outputPath, function(err, res) {
-    });
+
+    if (outputPath.indexOf('.html') > -1 ) {
+      fs.writeFile(outputPath, $base.html(), (err) => {
+        console.log('Created! ' + path.basename(outputPath));
+      });
+    } else if (outputPath.indexOf('.pdf') > -1) {
+      pdf.create($base.html()).toFile(outputPath, function(err, res) {
+        console.log('Created! ' + path.basename(outputPath));
+      });
+    }
 
   }).catch(onerror);
 
