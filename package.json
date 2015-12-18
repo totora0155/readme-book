@@ -1,16 +1,18 @@
 {
   "name": "readme-book",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "lint": "gulp lint",
-    "start": "browser-sync start --server --files '**/*.{html,css,js}' --no-ui --no-open",
-    "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
+  "description": "Join .md files that present on the Github",
+  "version": "0.1.0",
+  "author": {
+    "name": "nju33",
+    "email": "sski0155+npm@gmail.com",
+    "url": "http://nju33.work/"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "readme-book": "./cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/totora0155/readme-book/issues"
+  },
   "dependencies": {
     "cheerio": "^0.19.0",
     "co": "^4.6.0",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "cssnano": "^3.3.2",
     "eslint-config-standard": "^4.4.0",
+    "eslint-plugin-react": "^3.11.3",
     "eslint-plugin-standard": "^1.3.1",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.1.1",
@@ -33,7 +36,19 @@
     "stylelint": "^2.3.5",
     "stylelint-config-nju33": "^0.1.1"
   },
-  "bin": {
-    "readme-book": "./cli.js"
+  "homepage": "https://github.com/totora0155/readme-book#readme",
+  "keywords": [
+    "pdf"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:totora0155/readme-book.git"
+  },
+  "scripts": {
+    "lint": "gulp lint",
+    "start": "browser-sync start --server --files '**/*.{html,css,js}' --no-ui --no-open",
+    "test": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
   }
 }
