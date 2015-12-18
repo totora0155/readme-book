@@ -1,5 +1,5 @@
 html {
-  font: 
+  font:
     15px/1.7
     "Lucida Grande", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
@@ -53,9 +53,14 @@ p > a:hover {
 }
 
 pre {
-  background: #414141;
+  display: inline-block;
+  width: 100%;
+  bord-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
   padding: 1rem;
-  font-size: .9rem;
+  background: #414141;
+  font-size: .85rem;
   color: #f8f8f8;
 }
 

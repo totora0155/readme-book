@@ -3,16 +3,10 @@
 const fs = require('fs'),
       path = require('path');
 
-
-
 const co = require('co'),
       request = require('request'),
       cheerio = require('cheerio'),
       pdf = require('html-pdf');
-
-const github = require('./libs/github'),
-      store = require('./libs/store');
-
 
 function readFile(filePath, cb) {
   return new Promise((resolve, reject) => {
@@ -24,7 +18,6 @@ function readFile(filePath, cb) {
 };
 
 function getReadme (url) {
-  console.log(123);
   return new Promise((resolve, reject) => {
     request(url, (err, res, body) => {
       if (err && res.statusCode != 200) return reject(err);
@@ -48,7 +41,6 @@ co(function* () {
   data.forEach((aa) => {
     $base('body').append(`<section>${aa}</section>`);
   });
-  // console.log($base.html());
   fs.writeFile('index.html', $base.html(), (err) => {
     console.log('Save! index.html');
   });
@@ -60,51 +52,3 @@ co(function* () {
 function onerror(err) {
   console.error(err);
 };
-// var $base = co.wrap(function* (){
-  // const html = yield Promise.resolve(true);
-  //  const html = yield new Promise((resolve, reject) => {
-    //  fs.readFile('./templates/base.html', 'utf-8', (data) => {
-        // resolve(data);
-    //  });
-  //  });
-// });
-
-// console.log(fn);
-
-  // const = fs.readFileSync('./templates/base.html', 'utf-8');
-
-// pdf.create(html).toFile('./test.pdf', function(err, res) {
-//   if (err) return console.log(err);
-//   console.log('Created! ' + res.filename);
-// });
-
-
-// const content = '/gulpjs/gulp'
-// request(github.get(content), function(err, res, html) {
-//   if (!err && res.statusCode == 200) {
-//     let $ = cheerio.load(html);
-//
-//     const body = $('.markdown-body').html();
-//     store.set({content, body});
-//
-//     console.log(store.get());
-//   }
-// });
-
-
-// var req = https.request(option, function(res) {
-//   // console.log("statusCode: ", res.statusCode);
-//   // console.log("headers: ", res.headers);
-//
-//   res.on('data', function(d) {
-//     html += d
-//     // process.stdout.write(d);
-//   });
-//
-//   res.on('end')
-// });
-// req.end();
-//
-// req.on('error', function(e) {
-//   console.error(e);
-// });
