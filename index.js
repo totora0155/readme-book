@@ -80,7 +80,7 @@ const readmeBook = function readmeBook(opts, cb) {
       return cb(result)
     }
 
-    return cb();
+    return cb !== undefined ? cb() : null;
 
   }).catch(onerror);
 
